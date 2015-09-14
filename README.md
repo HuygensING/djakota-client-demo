@@ -1,2 +1,2 @@
-# djakota-client-demo
-http://huygensing.github.io/djakota-client-demo/
+# djatoka-client-demo
+http://huygensing.github.io/djatoka-client-demo/

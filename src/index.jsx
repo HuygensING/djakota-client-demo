@@ -1,5 +1,5 @@
 import React from "react";
-import {DjakotaClient, Minimap, Zoom, FillButton} from "hire-djakota-client";
+import {DjatokaClient, Minimap, Zoom, FillButton} from "hire-djatoka-client";
 
 let configs = [
 	{"identifier": "http://localhost:8080/jp2/13434696301791.jp2","imagefile": "/var/cache/tomcat6/temp/cache15069217286472590195734192754.jp2","width": "4355","height": "3300","dwtLevels": "6","levels": "6","compositingLayerCount": "1"},
@@ -20,7 +20,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<DjakotaClient config={this.state.config} service={service} />
+				<DjatokaClient config={this.state.config} service={service} />
 				<Zoom />		
 				<FillButton scaleMode="widthFill"  />
 				<FillButton scaleMode="heightFill"  />
@@ -32,4 +32,6 @@ class App extends React.Component {
 	}
 }
 
-React.render(<App />, document.body);
+document.addEventListener("DOMContentLoaded", function(event) {
+	React.render(<App />, document.body);
+});

@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.DjakotaTest = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.DjatokaTest = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -1890,7 +1890,7 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _hireDjakotaClient = require("hire-djakota-client");
+var _hireDjatokaClient = require("hire-djatoka-client");
 
 var configs = [{ "identifier": "http://localhost:8080/jp2/13434696301791.jp2", "imagefile": "/var/cache/tomcat6/temp/cache15069217286472590195734192754.jp2", "width": "4355", "height": "3300", "dwtLevels": "6", "levels": "6", "compositingLayerCount": "1" }, { "identifier": "http://localhost:8080/jp2/14109682675171.jp2", "imagefile": "/var/cache/tomcat6/temp/cache-13181255252118942660168337691.jp2", "width": "2409", "height": "616", "dwtLevels": "5", "levels": "5", "compositingLayerCount": "1" }, { "identifier": "http://localhost:8080/jp2/14284083156311.jp2", "imagefile": "/var/cache/tomcat6/temp/cache-8322632389065752716911482542.jp2", "width": "758", "height": "4891", "dwtLevels": "6", "levels": "6", "compositingLayerCount": "1" }];
 
@@ -1914,13 +1914,13 @@ var App = (function (_React$Component) {
 			return _react2["default"].createElement(
 				"div",
 				{ className: "app" },
-				_react2["default"].createElement(_hireDjakotaClient.DjakotaClient, { config: this.state.config, service: service }),
-				_react2["default"].createElement(_hireDjakotaClient.Zoom, null),
-				_react2["default"].createElement(_hireDjakotaClient.FillButton, { scaleMode: "widthFill" }),
-				_react2["default"].createElement(_hireDjakotaClient.FillButton, { scaleMode: "heightFill" }),
-				_react2["default"].createElement(_hireDjakotaClient.FillButton, { scaleMode: "fullZoom" }),
-				_react2["default"].createElement(_hireDjakotaClient.FillButton, { scaleMode: "autoFill" }),
-				_react2["default"].createElement(_hireDjakotaClient.Minimap, { config: this.state.config, service: service })
+				_react2["default"].createElement(_hireDjatokaClient.DjatokaClient, { config: this.state.config, service: service }),
+				_react2["default"].createElement(_hireDjatokaClient.Zoom, null),
+				_react2["default"].createElement(_hireDjatokaClient.FillButton, { scaleMode: "widthFill" }),
+				_react2["default"].createElement(_hireDjatokaClient.FillButton, { scaleMode: "heightFill" }),
+				_react2["default"].createElement(_hireDjatokaClient.FillButton, { scaleMode: "fullZoom" }),
+				_react2["default"].createElement(_hireDjatokaClient.FillButton, { scaleMode: "autoFill" }),
+				_react2["default"].createElement(_hireDjatokaClient.Minimap, { config: this.state.config, service: service })
 			);
 		}
 	}]);
@@ -1928,9 +1928,11 @@ var App = (function (_React$Component) {
 	return App;
 })(_react2["default"].Component);
 
-_react2["default"].render(_react2["default"].createElement(App, null), document.body);
+document.addEventListener("DOMContentLoaded", function (event) {
+	_react2["default"].render(_react2["default"].createElement(App, null), document.body);
+});
 
-},{"hire-djakota-client":7,"react":"react"}],7:[function(require,module,exports){
+},{"hire-djatoka-client":7,"react":"react"}],7:[function(require,module,exports){
 (function (process,global,Buffer){
 "use strict";
 
@@ -1950,7 +1952,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 			g = self;
 		} else {
 			g = this;
-		}g.DjakotaClient = f();
+		}g.DjatokaClient = f();
 	}
 })(function () {
 	var define, module, exports;return (function e(t, n, r) {
@@ -3078,9 +3080,9 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					this.service = service;
 					this.config = config;
 					this.params = {
-						rft_id: this.config.identifier,
-						url_ver: "Z39.88-2004",
-						svc_val_fmt: "info:ofi/fmt:kev:mtx:jpeg2000",
+						"rft_id": this.config.identifier,
+						"url_ver": "Z39.88-2004",
+						"svc_val_fmt": "info:ofi/fmt:kev:mtx:jpeg2000",
 						"svc.format": "image/jpeg"
 					};
 					this.levels = parseInt(this.config.dwtLevels);
@@ -3161,7 +3163,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					}
 				}, {
 					key: "makeTiles",
-					value: function makeTiles(opts, level, scale, onTile) {
+					value: function makeTiles(opts, level, scale) {
 						var upscaleFactor = this.resolutions.length - level;
 						var yStart = this.getStart(opts.position.y);
 						var xStart = this.getStart(opts.position.x);
@@ -3169,10 +3171,6 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 						for (var y = yStart; (y - yStart) * scale - TILE_SIZE * 2 + opts.position.y < opts.viewport.h && this.upScale(y, upscaleFactor) < this.fullHeight; y += TILE_SIZE) {
 
 							for (var x = xStart; (x - xStart) * scale - TILE_SIZE * 2 + opts.position.x < opts.viewport.w && this.upScale(x, upscaleFactor) < this.fullWidth; x += TILE_SIZE) {
-
-								var realTileW = this.upScale(x, upscaleFactor) + this.upScale(TILE_SIZE, upscaleFactor) > this.fullWidth ? parseInt(this.downScale(this.fullWidth - this.upScale(x, upscaleFactor), upscaleFactor)) : TILE_SIZE;
-
-								var realTileH = this.upScale(y, upscaleFactor) + this.upScale(TILE_SIZE, upscaleFactor) > this.fullHeight ? parseInt(this.downScale(this.fullHeight - this.upScale(y, upscaleFactor), upscaleFactor)) : TILE_SIZE;
 
 								this.fetchTile({
 									realX: x,
@@ -3282,7 +3280,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					}
 				}, {
 					key: "loadImage",
-					value: function loadImage(opts, onScale) {
+					value: function loadImage(opts) {
 						if (opts.scaleMode) {
 							this[opts.scaleMode](opts);
 						} else {
@@ -3314,9 +3312,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 			};
 
 			var initialState = {
-				realViewPort: {
-					x: 0, y: 0, w: 0, h: 0, zoom: 0, reposition: false
-				},
+				realViewPort: { x: 0, y: 0, w: 0, h: 0, zoom: 0, reposition: false },
 				mousewheel: null,
 				fillMode: null
 			};
@@ -3443,7 +3439,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 
 			var _apiStore2 = _interopRequireDefault(_apiStore);
 
-			var _utilRequestAnimationFrame = _dereq_('../util/request-animation-frame');
+			var _utilRequestAnimationFrame = _dereq_("../util/request-animation-frame");
 
 			var MOUSE_UP = 0;
 			var MOUSE_DOWN = 1;
@@ -3455,13 +3451,13 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 
 			var SUPPORTED_SCALE_MODES = ["heightFill", "widthFill", "autoFill", "fullZoom"];
 
-			var DjakotaClient = (function (_React$Component) {
-				_inherits(DjakotaClient, _React$Component);
+			var DjatokaClient = (function (_React$Component) {
+				_inherits(DjatokaClient, _React$Component);
 
-				function DjakotaClient(props) {
-					_classCallCheck(this, DjakotaClient);
+				function DjatokaClient(props) {
+					_classCallCheck(this, DjatokaClient);
 
-					_get(Object.getPrototypeOf(DjakotaClient.prototype), "constructor", this).call(this, props);
+					_get(Object.getPrototypeOf(DjatokaClient.prototype), "constructor", this).call(this, props);
 					this.api = new _apiApi2["default"](this.props.service, this.props.config);
 
 					this.state = {
@@ -3490,13 +3486,13 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					this.touchmap = { startPos: false, positions: [], tapStart: 0, lastTap: 0, pinchDelta: 0, pinchDistance: 0 };
 				}
 
-				_createClass(DjakotaClient, [{
+				_createClass(DjatokaClient, [{
 					key: "componentDidMount",
 					value: function componentDidMount() {
 						var _this = this;
 
 						this.commitResize();
-						this.imageCtx = _react2["default"].findDOMNode(this).children[0].getContext('2d');
+						this.imageCtx = _react2["default"].findDOMNode(this).children[0].getContext("2d");
 						window.addEventListener("resize", this.resizeListener);
 						window.addEventListener("mousemove", this.mousemoveListener);
 						window.addEventListener("mouseup", this.mouseupListener);
@@ -3546,7 +3542,6 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 				}, {
 					key: "receiveNewState",
 					value: function receiveNewState() {
-
 						if (this.state.realViewPort.reposition) {
 							var _api$getRealImagePos = this.api.getRealImagePos(this.imagePos, this.scale, this.level);
 
@@ -3588,7 +3583,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 						if (this.resizeDelay === 0 && this.resizing) {
 							this.commitResize();
 						} else if (this.resizeDelay > 0) {
-							this.resizeDelay--;
+							this.resizeDelay -= 1;
 						}
 						(0, _utilRequestAnimationFrame.requestAnimationFrame)(this.animationFrameListener);
 					}
@@ -3706,12 +3701,12 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					}
 				}, {
 					key: "onTouchEnd",
-					value: function onTouchEnd(ev) {
+					value: function onTouchEnd() {
 						this.touchState = TOUCH_END;
 					}
 				}, {
 					key: "onMouseUp",
-					value: function onMouseUp(ev) {
+					value: function onMouseUp() {
 						if (this.mouseState === MOUSE_DOWN) {
 							this.loadImage({ scale: this.scale, level: this.level });
 						}
@@ -3784,7 +3779,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 				}, {
 					key: "render",
 					value: function render() {
-						return _react2["default"].createElement("div", { className: "hire-djakota-client" }, _react2["default"].createElement("canvas", {
+						return _react2["default"].createElement("div", { className: "hire-djatoka-client" }, _react2["default"].createElement("canvas", {
 							className: "image",
 							height: this.state.height,
 							width: this.state.width
@@ -3801,12 +3796,12 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					}
 				}]);
 
-				return DjakotaClient;
+				return DjatokaClient;
 			})(_react2["default"].Component);
 
-			DjakotaClient.propTypes = {
+			DjatokaClient.propTypes = {
 				config: _react2["default"].PropTypes.object.isRequired,
-				scaleMode: function scaleMode(props, propName, componentName) {
+				scaleMode: function scaleMode(props, propName) {
 					if (SUPPORTED_SCALE_MODES.indexOf(props[propName]) < 0) {
 						var msg = "Scale mode '" + props[propName] + "' not supported. Modes: " + SUPPORTED_SCALE_MODES.join(", ");
 						props[propName] = "heightFill";
@@ -3816,11 +3811,11 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 				service: _react2["default"].PropTypes.string.isRequired
 			};
 
-			DjakotaClient.defaultProps = {
+			DjatokaClient.defaultProps = {
 				scaleMode: "heightFill"
 			};
 
-			exports["default"] = DjakotaClient;
+			exports["default"] = DjatokaClient;
 			module.exports = exports["default"];
 		}, { "../api/actions": 15, "../api/api": 16, "../api/store": 18, "../util/request-animation-frame": 27, "react": "react" }], 20: [function (_dereq_, module, exports) {
 			"use strict";
@@ -3897,9 +3892,6 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 
 			var _apiStore2 = _interopRequireDefault(_apiStore);
 
-			var MOUSE_UP = 0;
-			var MOUSE_DOWN = 1;
-
 			var SUPPORTED_SCALE_MODES = ["heightFill", "widthFill", "autoFill", "fullZoom"];
 
 			var FillButton = (function (_React$Component) {
@@ -3942,7 +3934,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 			})(_react2["default"].Component);
 
 			FillButton.propTypes = {
-				scaleMode: function scaleMode(props, propName, componentName) {
+				scaleMode: function scaleMode(props, propName) {
 					if (SUPPORTED_SCALE_MODES.indexOf(props[propName]) < 0) {
 						var msg = "Scale mode '" + props[propName] + "' not supported. Modes: " + SUPPORTED_SCALE_MODES.join(", ");
 						props[propName] = "heightFill";
@@ -3956,22 +3948,6 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 			};
 
 			exports["default"] = FillButton;
-
-			/*
-   <svg
-     style="stroke:#000000;stroke-width:1px;stroke-opacity:1"
-      viewBox="0 0 16 16">
-       <g transform="rotate(90,8,8)">
-           <path d="M 2.1,8.5 13.876786,8.5"/>
-           <path d="M 14.2895,8.8224 10.876793,5.4933"/>
-           <path d="M 1.5196504,8.7867 4.9323574,5.4576"/>
-           <path d="M 14.27524,8.1261353 11.216057,11.258414" />
-           <path d="M 1.5503841,8.1252136 4.3668137,11.302078" />
-           <path d="m 15.386755,4.3822 0.01012,8.1302" />
-           <path d="m 0.58963983,4.3191 0.010124,8.1302" />
-     </g>
-   </svg>
-   */
 			module.exports = exports["default"];
 		}, { "../api/actions": 15, "../api/store": 18, "./icons/auto-fill": 21, "./icons/height-fill": 22, "./icons/width-fill": 23, "react": "react" }], 21: [function (_dereq_, module, exports) {
 			"use strict";
@@ -4044,18 +4020,14 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					value: function render() {
 						return _react2["default"].createElement("svg", { viewBox: "0 -2 16 20" }, _react2["default"].createElement("path", { d: "M 2.2510028,2.3999952 14.134355,13.976932", style: { strokeWidth: 2 } }), _react2["default"].createElement("path", { d: "M 0.17726274,4.8389082 0.0558895,0.07290967 4.6198279,0.27222077", style: { strokeWidth: 0 } }), _react2["default"].createElement("path", {
 							d: "m 15.925831,11.287935 0.121374,4.765999 -4.563938,-0.199312",
-
 							style: { strokeWidth: 0 }
 						}), _react2["default"].createElement("path", {
 							d: "M 13.731112,2.2550713 2.1257829,14.110698",
-
 							style: { strokeWidth: 2 } }), _react2["default"].createElement("path", {
 							d: "M 11.297166,0.17550349 16.063441,0.06553063 15.853214,4.6289791",
-
 							style: { strokeWidth: 0 }
 						}), _react2["default"].createElement("path", {
 							d: "M 4.8104871,15.908601 0.0442114,16.018574 0.2544395,11.455126",
-
 							style: { strokeWidth: 0 }
 						}));
 					}
@@ -4289,7 +4261,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 
 			var _apiStore2 = _interopRequireDefault(_apiStore);
 
-			var _utilRequestAnimationFrame = _dereq_('../util/request-animation-frame');
+			var _utilRequestAnimationFrame = _dereq_("../util/request-animation-frame");
 
 			var RESIZE_DELAY = 5;
 
@@ -4309,7 +4281,6 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 						width: null,
 						height: null
 					};
-
 					this.resizeListener = this.onResize.bind(this);
 					this.animationFrameListener = this.onAnimationFrame.bind(this);
 
@@ -4328,8 +4299,8 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 						var _this = this;
 
 						this.onResize();
-						this.imageCtx = _react2["default"].findDOMNode(this).children[0].getContext('2d');
-						this.interactionCtx = _react2["default"].findDOMNode(this).children[1].getContext('2d');
+						this.imageCtx = _react2["default"].findDOMNode(this).children[0].getContext("2d");
+						this.interactionCtx = _react2["default"].findDOMNode(this).children[1].getContext("2d");
 						window.addEventListener("resize", this.resizeListener);
 						window.addEventListener("mousemove", this.mousemoveListener);
 						window.addEventListener("mouseup", this.mouseupListener);
@@ -4372,7 +4343,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 							this.commitResize();
 							this.resizeDelay = -1;
 						} else if (this.resizeDelay > 0) {
-							this.resizeDelay--;
+							this.resizeDelay -= 1;
 						}
 
 						this.interactionCtx.strokeStyle = this.props.rectStroke;
@@ -4462,7 +4433,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					}
 				}, {
 					key: "onMouseUp",
-					value: function onMouseUp(ev) {
+					value: function onMouseUp() {
 						this.mouseState = MOUSE_UP;
 					}
 				}, {
@@ -4473,13 +4444,13 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					}
 				}, {
 					key: "onTouchEnd",
-					value: function onTouchEnd(ev) {
+					value: function onTouchEnd() {
 						this.mouseState = MOUSE_UP;
 					}
 				}, {
 					key: "render",
 					value: function render() {
-						return _react2["default"].createElement("div", { className: "hire-djakota-minimap" }, _react2["default"].createElement("canvas", { className: "image", height: this.state.height, width: this.state.width }), _react2["default"].createElement("canvas", { className: "interaction",
+						return _react2["default"].createElement("div", { className: "hire-djatoka-minimap" }, _react2["default"].createElement("canvas", { className: "image", height: this.state.height, width: this.state.width }), _react2["default"].createElement("canvas", { className: "interaction",
 							height: this.state.height,
 							onMouseDown: this.onMouseDown.bind(this),
 							onTouchStart: this.onTouchStart.bind(this),
@@ -4654,7 +4625,7 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 					}
 				}, {
 					key: "onMouseUp",
-					value: function onMouseUp(ev) {
+					value: function onMouseUp() {
 						this.mouseState = MOUSE_UP;
 					}
 				}, {
@@ -4708,9 +4679,9 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 
 			var _react2 = _interopRequireDefault(_react);
 
-			var _componentsDjakotaClient = _dereq_("./components/djakota-client");
+			var _componentsDjatokaClient = _dereq_("./components/djatoka-client");
 
-			var _componentsDjakotaClient2 = _interopRequireDefault(_componentsDjakotaClient);
+			var _componentsDjatokaClient2 = _interopRequireDefault(_componentsDjatokaClient);
 
 			var _componentsMinimap = _dereq_("./components/minimap");
 
@@ -4724,16 +4695,16 @@ var _extends2 = Object.assign || function (target) { for (var i = 1; i < argumen
 
 			var _componentsFillButton2 = _interopRequireDefault(_componentsFillButton);
 
-			var css = Buffer("LmhpcmUtZGpha290YS1jbGllbnQsCi5oaXJlLWRqYWtvdGEtbWluaW1hcCB7Cgl3aWR0aDogMTAwJTsKCWhlaWdodDogMTAwJTsKfQoKLmhpcmUtZGpha290YS1jbGllbnQgPiAuaW50ZXJhY3Rpb24sCi5oaXJlLWRqYWtvdGEtY2xpZW50ID4gLmltYWdlLAouaGlyZS1kamFrb3RhLW1pbmltYXAgPiAuaW50ZXJhY3Rpb24sCi5oaXJlLWRqYWtvdGEtbWluaW1hcCA+IC5pbWFnZSB7Cglwb3NpdGlvbjogYWJzb2x1dGU7Cn0KCi5oaXJlLWRqYWtvdGEtY2xpZW50ID4gLmludGVyYWN0aW9uLAouaGlyZS1kamFrb3RhLW1pbmltYXAgPiAuaW50ZXJhY3Rpb24gewoJei1pbmRleDogMTsKfQoKLmhpcmUtem9vbS1iYXIgKiB7CiAgICAtbW96LXVzZXItc2VsZWN0OiBub25lOwogICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTsKICAgIC1tcy11c2VyLXNlbGVjdDogbm9uZTsgCiAgICB1c2VyLXNlbGVjdDogbm9uZTsgCiAgICAtd2Via2l0LXVzZXItZHJhZzogbm9uZTsKICAgIHVzZXItZHJhZzogbm9uZTsKfQouaGlyZS16b29tLWJhciB7CglkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CgltaW4td2lkdGg6IDQwMHB4OwoJbWluLWhlaWdodDogNDRweDsKfQoKLmhpcmUtem9vbS1iYXIgbGFiZWwgewoJZGlzcGxheTogaW5saW5lLWJsb2NrOwoJd2lkdGg6IDE1JTsKCWhlaWdodDogMTAwJTsKCXZlcnRpY2FsLWFsaWduOiB0b3A7Cn0KLmhpcmUtem9vbS1iYXIgbGFiZWwgPiAqIHsKCWRpc3BsYXk6IGlubGluZS1ibG9jazsKCWhlaWdodDogMTAwJTsKCWxpbmUtaGVpZ2h0OiAzNHB4Cn0KLmhpcmUtem9vbS1iYXIgc3ZnIHsKCWN1cnNvcjogcG9pbnRlcjsKCWZpbGw6ICNCREE0N0U7CglzdHJva2U6ICNGMUVCRTY7Cgl3aWR0aDogODUlOwp9CgouaGlyZS16b29tLWJhciBzdmcgcGF0aCB7CglzdHJva2Utd2lkdGg6IDZweDsKfQoKLmhpcmUtem9vbS1iYXIgc3ZnIGNpcmNsZSB7CglzdHJva2Utd2lkdGg6IDA7Cn0KCi5oaXJlLWZpbGwtYnV0dG9uIHsKCW1hcmdpbjogMDsKCXBhZGRpbmc6IDA7Cglib3JkZXI6IDA7CgliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCWZvbnQtZmFtaWx5OiBpbmhlcml0OwoJY3Vyc29yOiBwb2ludGVyOwoJb3V0bGluZTogMDsKCXdpZHRoOiA1MHB4OwoJaGVpZ2h0OiAyNHB4OwoJcGFkZGluZzogMCA2cHg7CgliYWNrZ3JvdW5kLWNvbG9yOiAjQkRBNDdFOwoJbWFyZ2luLXJpZ2h0OiA2cHg7Cglib3JkZXItcmFkaXVzOiAzcHg7Cgljb2xvcjogI0YxRUJFNjsKCXZlcnRpY2FsLWFsaWduOiB0b3A7Cgp9CgoKLmhpcmUtZmlsbC1idXR0b246Oi1tb3otZm9jdXMtaW5uZXJ7CglwYWRkaW5nOiAwOwoJYm9yZGVyOiAwOwp9CgouaGlyZS1maWxsLWJ1dHRvbiBzdmcgewoJc3Ryb2tlOiAjRjFFQkU2OwoJc3Ryb2tlLXdpZHRoOiAxcHg7CglmaWxsOiAjRjFFQkU2OwoKCXN0cm9rZS1vcGFjaXR5OiAxOwoJaGVpZ2h0OiAxMDAlCn0K", "base64");
+			var css = Buffer("LmhpcmUtZGphdG9rYS1jbGllbnQsCi5oaXJlLWRqYXRva2EtbWluaW1hcCB7Cgl3aWR0aDogMTAwJTsKCWhlaWdodDogMTAwJTsKfQoKLmhpcmUtZGphdG9rYS1jbGllbnQgPiAuaW50ZXJhY3Rpb24sCi5oaXJlLWRqYXRva2EtY2xpZW50ID4gLmltYWdlLAouaGlyZS1kamF0b2thLW1pbmltYXAgPiAuaW50ZXJhY3Rpb24sCi5oaXJlLWRqYXRva2EtbWluaW1hcCA+IC5pbWFnZSB7Cglwb3NpdGlvbjogYWJzb2x1dGU7Cn0KCi5oaXJlLWRqYXRva2EtY2xpZW50ID4gLmludGVyYWN0aW9uLAouaGlyZS1kamF0b2thLW1pbmltYXAgPiAuaW50ZXJhY3Rpb24gewoJei1pbmRleDogMTsKfQoKLmhpcmUtem9vbS1iYXIgKiB7CiAgICAtbW96LXVzZXItc2VsZWN0OiBub25lOwogICAgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTsKICAgIC1tcy11c2VyLXNlbGVjdDogbm9uZTsgCiAgICB1c2VyLXNlbGVjdDogbm9uZTsgCiAgICAtd2Via2l0LXVzZXItZHJhZzogbm9uZTsKICAgIHVzZXItZHJhZzogbm9uZTsKfQouaGlyZS16b29tLWJhciB7CglkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CgltaW4td2lkdGg6IDQwMHB4OwoJbWluLWhlaWdodDogNDRweDsKfQoKLmhpcmUtem9vbS1iYXIgbGFiZWwgewoJZGlzcGxheTogaW5saW5lLWJsb2NrOwoJd2lkdGg6IDE1JTsKCWhlaWdodDogMTAwJTsKCXZlcnRpY2FsLWFsaWduOiB0b3A7Cn0KLmhpcmUtem9vbS1iYXIgbGFiZWwgPiAqIHsKCWRpc3BsYXk6IGlubGluZS1ibG9jazsKCWhlaWdodDogMTAwJTsKCWxpbmUtaGVpZ2h0OiAzNHB4Cn0KLmhpcmUtem9vbS1iYXIgc3ZnIHsKCWN1cnNvcjogcG9pbnRlcjsKCWZpbGw6ICNCREE0N0U7CglzdHJva2U6ICNGMUVCRTY7Cgl3aWR0aDogODUlOwp9CgouaGlyZS16b29tLWJhciBzdmcgcGF0aCB7CglzdHJva2Utd2lkdGg6IDZweDsKfQoKLmhpcmUtem9vbS1iYXIgc3ZnIGNpcmNsZSB7CglzdHJva2Utd2lkdGg6IDA7Cn0KCi5oaXJlLWZpbGwtYnV0dG9uIHsKCW1hcmdpbjogMDsKCXBhZGRpbmc6IDA7Cglib3JkZXI6IDA7CgliYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKCWZvbnQtZmFtaWx5OiBpbmhlcml0OwoJY3Vyc29yOiBwb2ludGVyOwoJb3V0bGluZTogMDsKCXdpZHRoOiA1MHB4OwoJaGVpZ2h0OiAyNHB4OwoJcGFkZGluZzogMCA2cHg7CgliYWNrZ3JvdW5kLWNvbG9yOiAjQkRBNDdFOwoJbWFyZ2luLXJpZ2h0OiA2cHg7Cglib3JkZXItcmFkaXVzOiAzcHg7Cgljb2xvcjogI0YxRUJFNjsKCXZlcnRpY2FsLWFsaWduOiB0b3A7Cgp9CgoKLmhpcmUtZmlsbC1idXR0b246Oi1tb3otZm9jdXMtaW5uZXJ7CglwYWRkaW5nOiAwOwoJYm9yZGVyOiAwOwp9CgouaGlyZS1maWxsLWJ1dHRvbiBzdmcgewoJc3Ryb2tlOiAjRjFFQkU2OwoJc3Ryb2tlLXdpZHRoOiAxcHg7CglmaWxsOiAjRjFFQkU2OwoKCXN0cm9rZS1vcGFjaXR5OiAxOwoJaGVpZ2h0OiAxMDAlCn0K", "base64");
 			(0, _insertCss2["default"])(css, { prepend: true });
 
 			_react2["default"].initializeTouchEvents(true);
-			exports.DjakotaClient = _componentsDjakotaClient2["default"];
+			exports.DjatokaClient = _componentsDjatokaClient2["default"];
 			exports.Minimap = _componentsMinimap2["default"];
 			exports.Zoom = _componentsZoom2["default"];
 			exports.FillButton = _componentsFillButton2["default"];
-			exports["default"] = _componentsDjakotaClient2["default"];
-		}, { "./components/djakota-client": 19, "./components/fill-button": 20, "./components/minimap": 24, "./components/zoom": 25, "insert-css": 1, "react": "react" }], 27: [function (_dereq_, module, exports) {
+			exports["default"] = _componentsDjatokaClient2["default"];
+		}, { "./components/djatoka-client": 19, "./components/fill-button": 20, "./components/minimap": 24, "./components/zoom": 25, "insert-css": 1, "react": "react" }], 27: [function (_dereq_, module, exports) {
 			/*
    The MIT License (MIT)
    

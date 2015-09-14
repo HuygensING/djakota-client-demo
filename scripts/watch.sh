@@ -11,6 +11,6 @@ node_modules/.bin/watchify src/index.jsx \
 	--extension=.jsx \
 	--external react \
 	--outfile build/development/js/react-src.js \
-	--standalone DjakotaTest \
+	--standalone DjatokaTest \
 	--transform [ babelify --plugins object-assign ] \
 	--verbose
