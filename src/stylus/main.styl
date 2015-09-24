@@ -29,19 +29,26 @@ html
 	background-color #000
 	height calc(100% - 80px)
 
-.hire-zoom-bar, .hire-djatoka-minimap
+.hire-zoom-bar
 	vertical-align middle
 	display: inline-block
 	height 80px
 	width 120px
 
-.hire-fill-button
-	margin-top 20px
+.hire-fill-button,
+.hire-free-movement-button
+	margin-top 8px
 
-.hire-djatoka-minimap
-	position relative
-	top -20px
-	height 100px
-	max-width 15%
-	float right
-	margin-right 15px
+.minimap-wrap
+	border 1px solid red
+	position absolute
+	width 120px
+	height 120px
+	top 10px
+	left 10px
+
+a
+	cursor pointer
+	display inline-block
+	width 15px
+	text-align center
