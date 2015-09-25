@@ -1,15 +1,20 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="build/development/css/main.css" type="text/css">
-	    <title>Djatoka client demo</title>
-		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:300,300italic,700,700italic' rel='stylesheet' type='text/css'>	
-	</head>
-	<body>
-		<script src="build/development/js/react-libs.js"></script>
-		<script src="build/development/js/react-src.js"></script>
-	</body>
+    <head>
+        <script src="https://cdn.rawgit.com/HuygensING/hire-djatoka-client/master/build/hire-djatoka-client-1.9.0.js"></script>
+    </head>
+    <body id="content">
+        <div id="wrap" style="height: 80%; width: 70%">
+        </div>
+    <script type="text/javascript">
+        djatokaClientApp.mountNode({
+            "identifier": "http://localhost:8080/jp2/13434696301791.jp2",
+            "imagefile": "/var/cache/tomcat6/temp/cache15069217286472590195734192754.jp2",
+            "width": "4355",
+            "height": "3300",
+            "dwtLevels": "6",
+            "levels": "6",
+            "compositingLayerCount": "1"
+        }, "https://tomcat.tiler01.huygens.knaw.nl/adore-djatoka/resolver", document.querySelector("#wrap"));
+    </script>
+    </body>
 </html>
